@@ -37,13 +37,25 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe('the task-form-row class', () => {
-  it('should have a maximum width of 625px', async () => {
-    const maxWidth = await page.$eval('.task-form-row', (row) => {
-      var style = window.getComputedStyle(row);
-      return style.getPropertyValue('max-width');
-    });
-      
-    expect(maxWidth).toBe('625px');
+describe('the page', () => {
+  it('should contain a heading at the top of the page', async () => {
+      var headings = await page.$$('body > h1:first-child');
+      expect(headings.length).toBe(1);
+  });
+});
+
+describe('the page heading', () => {
+  it('should have the id page-heading', async () => {
+      var headings = await page.$$('body > h1:first-child[id="page-heading"]');
+      expect(headings.length).toBe(1);
+  });
+});
+
+describe('the page heading', () => {
+  it('should contain the text Task Board', async () => {
+      var heading = await page.$eval('#page-heading', (heading) => {
+        return heading.innerHTML.trim();
+      });
+      expect(heading).toBe('Task Board');
   });
 });

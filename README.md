@@ -1,19 +1,15 @@
-# 040 Form Width
+# 041 Task Application Heading
 
 ```
-Given that the user screen is wider than 625px 
-When the application is displayed 
-Then the task form displays a maximum width of 625px
-```
-
-```
-Given that the user screen is less than 625px 
-When the application is displayed 
-Then the task form displays according to the size of the screen
+Given that the application is available 
+When a user navigates to the application 
+Then they see a large heading at the top of the page that reads Task Board
 ```
 
 Steps:
-- the task-form-row class should have a maximum width of 625px
+- the page should contain a heading at the top of the page
+- the `page heading` should have the id `page-heading`
+- the `page-heading` should contain the text `Task Board`
 
 Resources:
-- https://www.w3schools.com/cssref/pr_dim_max-width.asp
+- https://www.w3schools.com/html/html_headings.asp
